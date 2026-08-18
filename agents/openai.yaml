@@ -1,0 +1,4 @@
+interface:
+  display_name: "Resume Evidence Workflow"
+  short_description: "从经历深挖、JD 路由到可投递简历的完整工作流与复用"
+  default_prompt: "使用 $resume-evidence-workflow，先深挖我的真实经历，再按目标 JD 选择合适的简历 skill，生成可投递简历。"
