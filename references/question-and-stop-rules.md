@@ -62,7 +62,7 @@ Stop or defer when:
 - continued questioning would mainly satisfy completeness;
 - user fatigue makes a checkpoint more valuable than another question.
 
-Completion means all meaningful experience modules have been surfaced and scanned for distinct value dimensions, not that every detail has been recorded. Maintain a deferred list with a reason such as `JD-specific`, `low information gain`, `needs source`, or `not currently retrievable`. Do not turn it into an automatic future questionnaire.
+Completion means all meaningful experience modules have been surfaced and scanned for distinct value dimensions, not that every detail has been recorded. Maintain a deferred list with a reason such as `job-description-specific`, `low information gain`, `needs source`, or `not currently retrievable`. Do not turn it into an automatic future questionnaire.
 
 ## Problem-solving event scan
 
@@ -84,4 +84,4 @@ Use professional judgment internally and accessible language externally.
 
 After a substantial answer, provide concise feedback using slightly more professional, resume-adjacent language to show what information was extracted. Present it directly rather than announcing a framework or labeling `facts`, `capabilities`, or `provisional wording`. Usually one short paragraph or a few bullets is enough.
 
-Do not add an explanation of how the feedback will become future resume language. Do not produce a full rewritten bullet after every answer. Keep the underlying evidence bank neutral, and reserve final positioning and bullet decisions for the JD-tailoring stage.
+Do not add an explanation of how the feedback will become future resume language. Do not produce a full rewritten bullet after every answer. Keep the underlying evidence bank neutral, and reserve final positioning and bullet decisions for the job description (JD) tailoring stage.

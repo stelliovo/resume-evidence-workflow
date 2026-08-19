@@ -1,10 +1,10 @@
 # Evidence Bank Schema
 
-Use a human-readable Markdown file as the default source of truth unless the user requests another format. Optimize for later retrieval, correction, JD matching, and interview preparation.
+Use a human-readable Markdown file as the default source of truth unless the user requests another format. Optimize for later retrieval, correction, job description (JD) matching, and interview preparation.
 
 ## Writing style
 
-The evidence bank is not a resume draft. Write in neutral, lightly edited factual language that another person or Agent can reinterpret for a future JD.
+The evidence bank is not a resume draft. Write in neutral, lightly edited factual language that another person or Agent can reinterpret for a future job description (JD).
 
 - Preserve ordinary nouns and the real subject of the fact.
 - Avoid ATS keywords, promotional summaries, compressed STAR/CAR bullets, and inflated business verbs.
@@ -12,13 +12,13 @@ The evidence bank is not a resume draft. Write in neutral, lightly edited factua
 - Record what happened, who did it, and the relevant scope without forcing every fact into action–result syntax.
 - Keep `potential resume or interview uses` separate from the underlying fact.
 
-This prevents downstream tools from copying premature wording instead of tailoring the evidence to the actual JD.
+This prevents downstream tools from copying premature wording instead of tailoring the evidence to the actual job description (JD).
 
 Conversation summaries may name a professional capability or show a provisional professional expression for the user's learning. Do not copy that expression into the factual record unless it accurately preserves the neutral fact; store it separately as a possible later use.
 
 ## Output formats
 
-Generate Markdown first. After a meaningful milestone, ask whether the user also wants HTML, Word, or another format for reading, sharing, or archiving. The user may stop after receiving the evidence bank and does not have to continue into JD tailoring.
+Generate Markdown first. After a meaningful milestone, ask whether the user also wants HTML, Word, or another format for reading, sharing, or archiving. The user may stop after receiving the evidence bank and does not have to continue into job description (JD) tailoring.
 
 Treat Markdown as the maintained source unless the user explicitly chooses otherwise. Derived formats should not become competing factual versions.
 
@@ -124,7 +124,7 @@ Do not label separate blocks as `facts`, `capabilities`, or `provisional languag
 
 ## Internal supporting indexes
 
-Keep claim status, capability-to-evidence links, JD mappings, resume-defense mappings, sources, and modification history in a compact supporting section or separate internal file when they would make the main Markdown bank hard to read. The user-facing bank should remain the primary readable record.
+Keep claim status, capability-to-evidence links, job description (JD) mappings, resume-defense mappings, sources, and modification history in a compact supporting section or separate internal file when they would make the main Markdown bank hard to read. The user-facing bank should remain the primary readable record.
 
 Maintain a global key-event index that links each event back to its experience and evidence rather than duplicating the full story. Include:
 
@@ -139,13 +139,13 @@ This index prevents process evidence from disappearing merely because it is not 
 
 ### Deferred questions
 
-Record the question and why it was deferred. Allowed reasons include `JD-specific`, `low information gain`, `needs source`, `user fatigue`, and `not currently retrievable`.
+Record the question and why it was deferred. Allowed reasons include `job-description-specific`, `low information gain`, `needs source`, `user fatigue`, and `not currently retrievable`.
 
 ## Updating
 
 Treat the latest explicit correction as authoritative. Replace obsolete transcription errors and update indexes. Preserve old presentation variants only when useful; do not retain contradictory facts as parallel truths.
 
-The evidence bank remains writable throughout JD matching, resume rewriting, and final review. When a user introduces a previously unrecorded experience or fact during those stages:
+The evidence bank remains writable throughout job description (JD) matching, resume rewriting, and final review. When a user introduces a previously unrecorded experience or fact during those stages:
 
 1. search the bank for the same fact, a synonymous record, or a broader entry that already contains it;
 2. distinguish a genuinely new fact from a new resume phrasing of an existing fact;
@@ -156,7 +156,7 @@ The evidence bank remains writable throughout JD matching, resume rewriting, and
 
 Do not require a formal approval exchange for every ordinary addition, but never hide the write-back action. If the user says not to add it, do not add it. If the user identifies duplication, merge only when the records are truly equivalent and preserve the more precise source and scope.
 
-Resume wording is not automatically evidence. Store the underlying fact, not merely the polished bullet. Keep presentation choices and target-JD phrasing separate from the neutral record.
+Resume wording is not automatically evidence. Store the underlying fact, not merely the polished bullet. Keep presentation choices and target job description (JD) phrasing separate from the neutral record.
 
 ## Metrics and later developments
 

@@ -1,11 +1,11 @@
 ---
 name: resume-evidence-workflow
-description: Run an evidence-first resume workflow from career deep-dive through JD matching, selection of the best installed resume skill, targeted rewriting, and delivery of an application-ready resume. Use when the user wants to uncover overlooked experience, understand and defend every claim, tailor a resume to a JD, or choose among multiple resume skills for a particular market, industry, role, and language. Accept long-form typed, dictated, transcribed, or audio-derived narratives. Do not use merely to format a finished resume or answer one isolated interview question.
+description: Run an evidence-first resume workflow from career deep-dive through job description (JD) matching, selection of the best installed resume skill, targeted rewriting, and delivery of an application-ready resume. Use when the user wants to uncover overlooked experience, understand and defend every claim, tailor a resume to a job description (JD), or choose among multiple resume skills for a particular market, industry, role, and language. Accept long-form typed, dictated, transcribed, or audio-derived narratives. Do not use merely to format a finished resume or answer one isolated interview question.
 ---
 
 # Resume Evidence Workflow
 
-Produce an application-ready resume through an evidence-first workflow. Help the user understand their own experience well enough to explain every resume claim, discover valuable work they may not recognize as career evidence, then match that evidence to a JD and route the actual rewrite through the best available resume skill. This is not a mock interview, a form-filling exercise, or a claim that one writing method fits every market.
+Produce an application-ready resume through an evidence-first workflow. Help the user understand their own experience well enough to explain every resume claim, discover valuable work they may not recognize as career evidence, then match that evidence to a job description (JD) and route the actual rewrite through the best available resume skill. This is not a mock interview, a form-filling exercise, or a claim that one writing method fits every market.
 
 ## Product distinction and complete outcome
 
@@ -18,7 +18,7 @@ Build:
 - a capability map showing distinct value dimensions within each experience;
 - a resume-defense map explaining what each current or proposed bullet is based on and how far it can safely be discussed;
 - a compact index of meaningful problem-solving events that may not appear in the final resume;
-- a JD-to-evidence match and gap analysis;
+- a job description (JD)-to-evidence match and gap analysis;
 - a documented choice of the most suitable installed resume skill or fallback route;
 - a targeted, verified, application-ready resume in the user's required format.
 
@@ -37,14 +37,14 @@ Infer the current stage from the user's request and existing files. Do not resta
 1. **Inventory:** inspect existing resumes and career materials.
 2. **Deep dive:** recall, scan laterally, and selectively deepen experiences.
 3. **Evidence checkpoint:** update the evidence bank and resume-defense map.
-4. **JD decode:** identify the role's business objective, must-haves, preferred signals, market, language, seniority, and likely evaluation lens.
-5. **Resume-skill selection:** inspect and choose the best installed resume skill for this JD and candidate.
-6. **Match and proposal:** map JD requirements to verified evidence; show intended emphasis, rewriting, compression, movement, or removal before destructive changes.
+4. **Job description (JD) decode:** identify the role's business objective, must-haves, preferred signals, market, language, seniority, and likely evaluation lens.
+5. **Resume-skill selection:** inspect and choose the best installed resume skill for this job description (JD) and candidate.
+6. **Match and proposal:** map job description (JD) requirements to verified evidence; show intended emphasis, rewriting, compression, movement, or removal before destructive changes.
 7. **Targeted rewrite:** apply the selected skill's method while preserving the evidence bank as the factual source of truth.
 8. **Application-ready delivery:** render, inspect, and deliver the requested resume artifact.
-9. **Memory update:** record approved wording, presentation choices, and newly confirmed evidence for reuse, including facts first discovered during JD matching or rewriting.
+9. **Memory update:** record approved wording, presentation choices, and newly confirmed evidence for reuse, including facts first discovered during job description (JD) matching or rewriting.
 
-When no JD is available, complete stages 1–3 and explain that the evidence bank is ready for later tailoring. Do not imply the product ends there.
+When no job description (JD) is available, complete stages 1–3 and explain that the evidence bank is ready for later tailoring. Do not imply the product ends there.
 
 ## Start from existing material
 
@@ -134,9 +134,9 @@ Ask the user to correct the checkpoint. Do not require confirmation of ordinary 
 
 After each substantial answer or coherent topic, show only the concise information that would be added to or changed in the evidence bank. Phrase it clearly and somewhat professionally, but keep it aligned with the neutral database record. This is an inline update preview so the user can correct the record without opening the Markdown file. Do not reproduce the whole experience or expose internal database mechanics on every turn.
 
-## Decode the JD before rewriting
+## Decode the job description (JD) before rewriting
 
-When a JD is supplied, keep it visible throughout the rewrite. Extract:
+When a job description (JD) is supplied, keep it visible throughout the rewrite. Extract:
 
 - the actual business problem and likely hiring need;
 - must-have, preferred, and low-priority requirements;
@@ -150,7 +150,7 @@ Build a user-facing requirement-to-evidence matrix. Distinguish direct evidence,
 
 Read [references/jd-and-skill-routing.md](references/jd-and-skill-routing.md) before choosing or recommending a resume skill.
 
-Inspect the skills actually available in the user's current Agent. Read the complete `SKILL.md` of plausible candidates before selecting one. Compare them against the JD rather than defaulting to this skill's own prose preferences.
+Inspect the skills actually available in the user's current Agent. Read the complete `SKILL.md` of plausible candidates before selecting one. Compare them against the job description (JD) rather than defaulting to this skill's own prose preferences.
 
 Choose:
 
@@ -161,7 +161,7 @@ Avoid blending multiple content methodologies without explaining conflicts. Tell
 
 The evidence bank and the user's current instructions outrank any selected skill. A routed skill may change framing, order, terminology, and emphasis; it may not invent evidence or silently discard user-approved content.
 
-During JD matching and rewriting, watch for experiences, actions, results, dates, scope, or other facts that are not yet in the evidence bank. Treat the bank as a living source of truth rather than a frozen input. Read the update rules in [references/evidence-schema.md](references/evidence-schema.md), check for an existing equivalent record, and write back genuinely new or corrected evidence promptly.
+During job description (JD) matching and rewriting, watch for experiences, actions, results, dates, scope, or other facts that are not yet in the evidence bank. Treat the bank as a living source of truth rather than a frozen input. Read the update rules in [references/evidence-schema.md](references/evidence-schema.md), check for an existing equivalent record, and write back genuinely new or corrected evidence promptly.
 
 Also update the bank when an existing experience changes: a metric has a newer value, a project reaches a new stage, an idea is adopted or rejected, an artifact is published, later reuse becomes known, or the user corrects an earlier detail. Distinguish a corrected fact from a newer snapshot and a later development; do not flatten them into one ambiguous statement.
 
@@ -171,7 +171,7 @@ Tell the user whenever this happens. Keep the notice short and show the exact ne
 
 Offer two routes instead of blocking:
 
-1. **Direct fallback:** perform a conservative evidence-backed rewrite using this skill's JD matrix and [references/application-ready-resume.md](references/application-ready-resume.md).
+1. **Direct fallback:** perform a conservative evidence-backed rewrite using this skill's job description (JD) matrix and [references/application-ready-resume.md](references/application-ready-resume.md).
 2. **Find a specialist:** search current public skill sources, including GitHub, for plausible resume skills suited to the target market and role.
 
 Searching is read-only; installation is a separate user decision. Review candidate skill instructions, repository source, maintenance recency, license, examples, dependencies, scripts, and obvious security or privacy risks. Present a small shortlist with fit and trade-offs. Never install or execute third-party code merely because it was found. If the user selects one, use the environment's skill-installation mechanism and obtain any required permission.
@@ -188,12 +188,12 @@ Before drafting the final resume, ask whether the user wants any of these visibl
 - self-evaluation;
 - intended or target position.
 
-Also ask whether this resume is dedicated to one JD or may be reused across multiple positions. Explain briefly that a narrowly named target position can be useful for a dedicated application but may be awkward or limiting when one resume is viewed by recruiters for other roles. Do not add these sections merely because the selected resume skill or template includes them; follow the user's choice.
+Also ask whether this resume is dedicated to one job description (JD) or may be reused across multiple positions. Explain briefly that a narrowly named target position can be useful for a dedicated application but may be awkward or limiting when one resume is viewed by recruiters for other roles. Do not add these sections merely because the selected resume skill or template includes them; follow the user's choice.
 
-Read [references/application-ready-resume.md](references/application-ready-resume.md) for final validation. The job is incomplete until the resume is usable for the intended application—not merely a list of suggested bullets or a diagnostic report.
+Read [references/application-ready-resume.md](references/application-ready-resume.md) for final validation. If the user chooses HTML, also read [references/editable-html-output.md](references/editable-html-output.md) and use [assets/editable-resume-base.html](assets/editable-resume-base.html) as the functional baseline. An HTML resume must include the editing module and remain directly editable; do not substitute a static HTML page. The job is incomplete until the resume is usable for the intended application—not merely a list of suggested bullets or a diagnostic report.
 
 ## Relationship to downstream work
 
-This skill begins without a JD when useful, but its complete path includes JD matching and resume delivery. When a JD later arrives, match it against the existing evidence bank before asking new questions. During rewriting, use the resume-defense map to ensure every bullet remains explainable.
+This skill begins without a job description (JD) when useful, but its complete path includes job description (JD) matching and resume delivery. When a job description (JD) later arrives, match it against the existing evidence bank before asking new questions. During rewriting, use the resume-defense map to ensure every bullet remains explainable.
 
 The workflow ends when the application-ready resume and its supporting evidence updates are delivered. Do not route into interview preparation, invoke an interview or BQ skill, generate STAR answers, create an interview handoff package, or conduct a mock interview as part of this skill. The portable evidence bank may be reused independently by the user or another tool, but that is outside this skill's promised functionality.

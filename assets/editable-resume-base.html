@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>可编辑单页简历</title>
+<style>
+:root{--body-size:10.5pt;--line:1.4;--section-gap:10px;--item-gap:5px;--page-pad:12mm;--ink:#202124;--accent:#263d63}
+*{box-sizing:border-box}body{margin:0;background:#eceff3;color:var(--ink);font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif}
+.toolbar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:9px 12px;background:#172033;color:#fff;box-shadow:0 2px 10px #0003}
+.toolbar button,.toolbar input{height:32px;border:0;border-radius:5px;padding:0 10px}.toolbar button{cursor:pointer}.toolbar .primary{background:#4d79c7;color:#fff}.toolbar small{opacity:.8}
+#warning{display:none;max-width:210mm;margin:8px auto;padding:8px 12px;background:#fff1c7;color:#6a4b00;border:1px solid #e0bd53;border-radius:5px}
+.page{width:210mm;height:297mm;margin:12px auto;background:#fff;padding:var(--page-pad);overflow:visible;box-shadow:0 3px 18px #0002;font-size:var(--body-size);line-height:var(--line)}
+.page h1{margin:0;color:var(--accent);font-size:22pt}.page h2{margin:var(--section-gap) 0 5px;border-bottom:1px solid var(--accent);color:var(--accent);font-size:12pt}.page p{margin:var(--item-gap) 0}.page ul{margin:var(--item-gap) 0;padding-left:18px}.page li{margin:2px 0}.row{display:flex;justify-content:space-between;gap:12px}.muted{color:#555}
+[contenteditable="true"]:focus{outline:1px dashed #4d79c7;background:#f5f8ff}
+@media print{body{background:#fff}.toolbar,#warning{display:none!important}.page{margin:0;box-shadow:none;width:210mm;height:297mm;overflow:hidden}@page{size:A4;margin:0}}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <button onclick="size(-.25)">字号−</button><button onclick="size(.25)">字号＋</button>
+  <input id="color" type="color" value="#202124" title="字体颜色" aria-label="字体颜色">
+  <button onclick="document.execCommand('bold')"><b>加粗</b></button>
+  <button onclick="align('justifyLeft')">左对齐</button><button onclick="align('justifyCenter')">居中</button>
+  <button onclick="align('justifyRight')">右对齐</button><button onclick="align('justifyFull')">两端对齐</button>
+  <button onclick="document.execCommand('undo')">撤销</button><button onclick="document.execCommand('redo')">恢复</button>
+  <button class="primary" onclick="fitOnePage()">自动适配一页</button>
+  <button onclick="resetView()">重置排版</button><button class="primary" onclick="window.print()">生成 PDF</button>
+  <small>点击简历文字即可编辑</small>
+</div>
+<div id="warning">内容仍超过一页安全范围。请先确认内容或布局调整方案，不要继续缩小字体。</div>
+<main id="page" class="page" contenteditable="true">
+  <h1>姓名</h1><p class="muted">联系方式｜目标岗位</p>
+  <h2>教育背景</h2><div class="row"><b>学校｜专业</b><span>时间</span></div>
+  <h2>工作经历</h2><div class="row"><b>公司｜职位</b><span>时间</span></div><ul><li>用经验证据替换此处内容。</li></ul>
+  <h2>项目经历</h2><div class="row"><b>项目名称</b><span>时间</span></div><ul><li>保留原始数据和职责边界。</li></ul>
+</main>
+<script>
+const root=document.documentElement,page=document.getElementById('page'),warning=document.getElementById('warning'),colorPicker=document.getElementById('color');
+let savedTextRange=null;
+function selectionInsidePage(){
+  const selection=window.getSelection();
+  if(!selection||selection.rangeCount===0||selection.isCollapsed)return null;
+  const range=selection.getRangeAt(0);
+  const ancestor=range.commonAncestorContainer.nodeType===Node.TEXT_NODE?range.commonAncestorContainer.parentElement:range.commonAncestorContainer;
+  return ancestor&&page.contains(ancestor)?range.cloneRange():null;
+}
+function saveTextSelection(){const range=selectionInsidePage();if(range)savedTextRange=range}
+function restoreTextSelection(){
+  if(!savedTextRange)return false;
+  const selection=window.getSelection();selection.removeAllRanges();selection.addRange(savedTextRange);return true;
+}
+function applyTextColor(value){
+  if(!restoreTextSelection())return;
+  document.execCommand('styleWithCSS',false,true);
+  document.execCommand('foreColor',false,value);
+  saveTextSelection();
+}
+document.addEventListener('selectionchange',()=>{if(document.activeElement!==colorPicker)saveTextSelection()});
+colorPicker.addEventListener('pointerdown',saveTextSelection);
+colorPicker.addEventListener('input',event=>applyTextColor(event.target.value));
+function n(v){return parseFloat(getComputedStyle(root).getPropertyValue(v))}
+function set(v,x,u=''){root.style.setProperty(v,x+u)}
+function size(d){set('--body-size',Math.max(9.5,Math.min(12,n('--body-size')+d)),'pt')}
+function align(command){document.execCommand(command,false,null)}
+function contentBottom(){
+  const pageBox=page.getBoundingClientRect(),children=[...page.children].filter(el=>getComputedStyle(el).display!=='none');
+  if(!children.length)return 0;
+  const bottom=Math.max(...children.map(el=>el.getBoundingClientRect().bottom));
+  return bottom-pageBox.top+n('--page-pad')*3.7795275591;
+}
+function usedRatio(){return contentBottom()/page.clientHeight}
+function overflow(){return page.scrollHeight>page.clientHeight+2||usedRatio()>1.003}
+function fitOnePage(){warning.style.display='none';resetView();let gap=n('--section-gap'),item=n('--item-gap'),pad=n('--page-pad'),line=n('--line'),font=n('--body-size');
+  for(let i=0;i<60&&overflow();i++){if(gap>6){gap-=.5;set('--section-gap',gap,'px')}else if(item>2){item-=.25;set('--item-gap',item,'px')}else if(pad>8){pad-=.25;set('--page-pad',pad,'mm')}else if(line>1.25){line-=.015;set('--line',line)}else if(font>9.5){font-=.1;set('--body-size',font,'pt')}else break}
+  if(overflow()){warning.textContent='内容仍超过一页安全范围。请先批准删减方案，不要继续缩小字体。';warning.style.display='block';return}
+  for(let i=0;i<100&&usedRatio()<.95;i++){
+    let prop,previous,next,unit='';
+    if(font<11){prop='--body-size';previous=font;next=font+=.1;unit='pt'}
+    else if(line<1.5){prop='--line';previous=line;next=line+=.02}
+    else if(gap<14){prop='--section-gap';previous=gap;next=gap+=.5;unit='px'}
+    else if(item<7){prop='--item-gap';previous=item;next=item+=.25;unit='px'}
+    else break;
+    set(prop,next,unit);
+    if(overflow()||usedRatio()>.98){set(prop,previous,unit);break}
+  }
+  if(usedRatio()<.95){warning.textContent='页面内容占比仍低于 95%。建议恢复相关且已批准的内容，或重新平衡模块间距。';warning.style.display='block'}
+  else if(usedRatio()>.98){warning.textContent='页面内容过于贴近底部，请略微收紧间距以保留打印安全区。';warning.style.display='block'}}
+function resetView(){['--body-size','--line','--section-gap','--item-gap','--page-pad'].forEach(x=>root.style.removeProperty(x));warning.style.display='none'}
+</script>
+</body></html>

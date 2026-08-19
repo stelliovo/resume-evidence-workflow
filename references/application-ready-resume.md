@@ -5,7 +5,7 @@ A rewrite is complete only when the user has a final artifact suitable for the i
 ## Content checks
 
 - Every final claim maps to the evidence bank.
-- Core JD requirements have visible evidence or an honestly stated gap.
+- Core job description (JD) requirements have visible evidence or an honestly stated gap.
 - The strongest and most relevant evidence is easy to find.
 - Wording reflects personal versus team ownership accurately.
 - Dates, organizations, roles, education, links, and metrics are internally consistent.
@@ -26,12 +26,13 @@ A rewrite is complete only when the user has a final artifact suitable for the i
 - Any higher-risk presentation choices are recorded separately from precise evidence.
 - The selected resume skill and any overridden rule are documented internally.
 - Before drafting, the user was asked whether to include self-positioning or a professional summary, self-evaluation, and an intended or target position.
-- The intended-position decision accounts for whether the file is dedicated to one JD or may be reused for multiple roles. Do not insert a narrow target role by default when broader reuse matters.
+- The intended-position decision accounts for whether the file is dedicated to one job description (JD) or may be reused for multiple roles. Do not insert a narrow target role by default when broader reuse matters.
 - The user's section choices override defaults in the selected resume skill or template.
 
 ## Artifact checks
 
 - Deliver the format the application requires.
+- If HTML is selected, read `editable-html-output.md`, build from `../assets/editable-resume-base.html`, and verify the editing toolbar instead of delivering static HTML.
 - Preserve the source layout when requested.
 - Check page count, clipping, overlap, whitespace, font readability, alignment, links, and print/export behavior.
 - Ensure the file opens independently and does not rely on missing local assets.

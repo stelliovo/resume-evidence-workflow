@@ -33,7 +33,7 @@ need or opportunity
 
 Context, constraints, assumptions, other contributors, and external factors may affect any link.
 
-Do not force every field into the user-facing bank. Inputs, budgets, schedules, risks, or stakeholder maps matter only when they clarify the work, support a target JD, or reveal a distinctive contribution.
+Do not force every field into the user-facing bank. Inputs, budgets, schedules, risks, or stakeholder maps matter only when they clarify the work, support a target job description (JD), or reveal a distinctive contribution.
 
 ## Experience-level and project-level reasons
 

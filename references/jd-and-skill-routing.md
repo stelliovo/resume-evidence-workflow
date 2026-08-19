@@ -1,10 +1,10 @@
-# JD and Resume-Skill Routing
+# Job Description (JD) and Resume-Skill Routing
 
 Choose a resume skill for the actual job, candidate, and output—not by popularity or installation order.
 
 ## Build the routing profile
 
-Extract from the JD and user context:
+Extract from the job description (JD) and user context:
 
 - country and hiring market;
 - resume language;
@@ -25,7 +25,7 @@ Read the complete `SKILL.md` of every plausible finalist and only the references
 - a general resume writer;
 - a market-specific writer;
 - an industry or role specialist;
-- a JD-matching tool;
+- a job description (JD) matching tool;
 - an evidence or story-mining tool;
 - a renderer or document generator.
 
@@ -39,7 +39,7 @@ Use these dimensions:
 | Language | Does it write natively for the resume's language rather than merely translate? |
 | Role and industry | Does it contain relevant professional vocabulary and evaluation logic? |
 | Candidate stage | Is its method suitable for this level and career path? |
-| JD alignment | Can it connect requirements to evidence rather than only polish prose? |
+| job description (JD) alignment | Can it connect requirements to evidence rather than only polish prose? |
 | Evidence discipline | Does it preserve ownership, scope, metrics, and uncertainty? |
 | User agency | Does it expose meaningful choices and respect the user's risk preference? |
 | Output | Can it preserve the source style and create the required artifact? |
@@ -53,7 +53,7 @@ Prefer one primary content skill. Add a second skill only for a distinct downstr
 
 Examples of valid routing logic:
 
-- Chinese internet operations JD → a China-industry resume method as primary; document renderer as secondary.
+- Chinese internet operations job description (JD) → a China-industry resume method as primary; document renderer as secondary.
 - US product role → an English ATS/HM-oriented method as primary; portfolio or document skill only if required.
 - Highly specialized finance or legal role → a domain-specific skill over a generic stylistic writer, provided its evidence rules are acceptable.
 
@@ -72,7 +72,7 @@ Inspect before recommending:
 - requests for credentials, uploads, or external services;
 - whether examples demonstrate the claimed market and role expertise.
 
-Recommend at most three candidates. First exclude candidates that do not fit the JD's market, language, role, industry, candidate stage, or required output. Among the remaining adequately matched candidates, prioritize the three with the highest current GitHub star counts. Report the star count and date checked, but do not treat stars as proof of professional quality.
+Recommend at most three candidates. First exclude candidates that do not fit the job description (JD)'s market, language, role, industry, candidate stage, or required output. Among the remaining adequately matched candidates, prioritize the three with the highest current GitHub star counts. Report the star count and date checked, but do not treat stars as proof of professional quality.
 
 Include “continue directly without installing” as a real option. Make clear that using any recommendation is the user's choice; the shortlist is decision support, not a required next step. Do not add weak candidates merely to reach three.
 
