@@ -25,13 +25,16 @@ Use [the editable base template](../assets/editable-resume-base.html) as the imp
 ## One-page A4 fitting
 
 - Measure the A4 resume page, not the browser viewport.
-- Target roughly 95%–98% occupied page height while retaining safe margins.
-- Compress whitespace before reducing typography.
+- Target 98% occupied page height, with 95%–98% as the acceptable range, while retaining safe margins.
+- After content edits, the auto-fit control must remeasure the actual content and work from the current page-level settings rather than resetting the resume first.
+- Whether compressing an overflowing page or expanding an under-filled page, adjust line height first, then paragraph or bullet spacing, then section spacing, then font size, and page margins last.
+- Use small bounded steps and continue searching when one property would overshoot 98%; do not stop the entire fit operation after the first rejected step.
 - Recommended body-font floor: 9.5pt for a dense Chinese resume; prefer 10–11pt.
 - Recommended line-height floor: 1.25.
 - Do not reduce page margins below roughly 8mm without approval.
 - Never hide overflow, delete content, or compress text to an unreadable size to simulate a one-page result.
 - If safe auto-fitting fails, show a warning and ask the user to approve a content or layout adjustment.
+- Show the measured occupied-height percentage after fitting so the user can verify that the control had an effect.
 
 ## Layout preservation
 
@@ -54,5 +57,7 @@ Before delivery, test that:
 3. text color does not alter layout;
 4. undo and redo work where supported;
 5. auto-fit never deletes content;
-6. the PDF button opens the browser print dialog;
-7. the toolbar is absent from printed output.
+6. auto-fit handles an under-filled page, an overflowing page, and new text added after an earlier fit;
+7. the final occupied-height percentage is visible and falls within 95%–98% whenever the content can safely reach that range;
+8. the PDF button opens the browser print dialog;
+9. the toolbar is absent from printed output.

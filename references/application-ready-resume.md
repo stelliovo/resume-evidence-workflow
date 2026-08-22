@@ -28,6 +28,8 @@ A rewrite is complete only when the user has a final artifact suitable for the i
 - Before drafting, the user was asked whether to include self-positioning or a professional summary, self-evaluation, and an intended or target position.
 - The intended-position decision accounts for whether the file is dedicated to one job description (JD) or may be reused for multiple roles. Do not insert a narrow target role by default when broader reuse matters.
 - The user's section choices override defaults in the selected resume skill or template.
+- Internship entries are grouped in a clearly identifiable internship section and are not mixed with non-internship experience under a vague combined heading.
+- Section names fit the target job description (JD) without misrepresenting employment type, role, or ownership.
 
 ## Artifact checks
 

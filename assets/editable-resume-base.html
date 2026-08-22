@@ -8,7 +8,7 @@
 :root{--body-size:10.5pt;--line:1.4;--section-gap:10px;--item-gap:5px;--page-pad:12mm;--ink:#202124;--accent:#263d63}
 *{box-sizing:border-box}body{margin:0;background:#eceff3;color:var(--ink);font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif}
 .toolbar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:9px 12px;background:#172033;color:#fff;box-shadow:0 2px 10px #0003}
-.toolbar button,.toolbar input{height:32px;border:0;border-radius:5px;padding:0 10px}.toolbar button{cursor:pointer}.toolbar .primary{background:#4d79c7;color:#fff}.toolbar small{opacity:.8}
+.toolbar button,.toolbar input{height:32px;border:0;border-radius:5px;padding:0 10px}.toolbar button{cursor:pointer}.toolbar .primary{background:#4d79c7;color:#fff}.toolbar small{opacity:.8}#fitStatus{margin-left:auto;white-space:nowrap;font-variant-numeric:tabular-nums}
 #warning{display:none;max-width:210mm;margin:8px auto;padding:8px 12px;background:#fff1c7;color:#6a4b00;border:1px solid #e0bd53;border-radius:5px}
 .page{width:210mm;height:297mm;margin:12px auto;background:#fff;padding:var(--page-pad);overflow:visible;box-shadow:0 3px 18px #0002;font-size:var(--body-size);line-height:var(--line)}
 .page h1{margin:0;color:var(--accent);font-size:22pt}.page h2{margin:var(--section-gap) 0 5px;border-bottom:1px solid var(--accent);color:var(--accent);font-size:12pt}.page p{margin:var(--item-gap) 0}.page ul{margin:var(--item-gap) 0;padding-left:18px}.page li{margin:2px 0}.row{display:flex;justify-content:space-between;gap:12px}.muted{color:#555}
@@ -26,7 +26,7 @@
   <button onclick="document.execCommand('undo')">撤销</button><button onclick="document.execCommand('redo')">恢复</button>
   <button class="primary" onclick="fitOnePage()">自动适配一页</button>
   <button onclick="resetView()">重置排版</button><button class="primary" onclick="window.print()">生成 PDF</button>
-  <small>点击简历文字即可编辑</small>
+  <small>点击简历文字即可编辑</small><small id="fitStatus">页面占比：待检测</small>
 </div>
 <div id="warning">内容仍超过一页安全范围。请先确认内容或布局调整方案，不要继续缩小字体。</div>
 <main id="page" class="page" contenteditable="true">
@@ -36,7 +36,7 @@
   <h2>项目经历</h2><div class="row"><b>项目名称</b><span>时间</span></div><ul><li>保留原始数据和职责边界。</li></ul>
 </main>
 <script>
-const root=document.documentElement,page=document.getElementById('page'),warning=document.getElementById('warning'),colorPicker=document.getElementById('color');
+const root=document.documentElement,page=document.getElementById('page'),warning=document.getElementById('warning'),colorPicker=document.getElementById('color'),fitStatus=document.getElementById('fitStatus');
 let savedTextRange=null;
 function selectionInsidePage(){
   const selection=window.getSelection();
@@ -63,29 +63,55 @@ function n(v){return parseFloat(getComputedStyle(root).getPropertyValue(v))}
 function set(v,x,u=''){root.style.setProperty(v,x+u)}
 function size(d){set('--body-size',Math.max(9.5,Math.min(12,n('--body-size')+d)),'pt')}
 function align(command){document.execCommand(command,false,null)}
-function contentBottom(){
-  const pageBox=page.getBoundingClientRect(),children=[...page.children].filter(el=>getComputedStyle(el).display!=='none');
-  if(!children.length)return 0;
-  const bottom=Math.max(...children.map(el=>el.getBoundingClientRect().bottom));
-  return bottom-pageBox.top+n('--page-pad')*3.7795275591;
+function contentMetrics(){
+  const pageBox=page.getBoundingClientRect(),style=getComputedStyle(page),topPad=parseFloat(style.paddingTop),bottomPad=parseFloat(style.paddingBottom);
+  const children=[...page.children].filter(el=>getComputedStyle(el).display!=='none');
+  const available=Math.max(1,page.clientHeight-topPad-bottomPad);
+  if(!children.length)return{used:0,available,ratio:0,overflow:false};
+  const bottom=Math.max(...children.map(el=>{const box=el.getBoundingClientRect(),s=getComputedStyle(el);return box.bottom+parseFloat(s.marginBottom||0)}));
+  const used=Math.max(0,bottom-(pageBox.top+topPad));
+  return{used,available,ratio:used/available,overflow:page.scrollHeight>page.clientHeight+1||used>available+1};
 }
-function usedRatio(){return contentBottom()/page.clientHeight}
-function overflow(){return page.scrollHeight>page.clientHeight+2||usedRatio()>1.003}
-function fitOnePage(){warning.style.display='none';resetView();let gap=n('--section-gap'),item=n('--item-gap'),pad=n('--page-pad'),line=n('--line'),font=n('--body-size');
-  for(let i=0;i<60&&overflow();i++){if(gap>6){gap-=.5;set('--section-gap',gap,'px')}else if(item>2){item-=.25;set('--item-gap',item,'px')}else if(pad>8){pad-=.25;set('--page-pad',pad,'mm')}else if(line>1.25){line-=.015;set('--line',line)}else if(font>9.5){font-=.1;set('--body-size',font,'pt')}else break}
-  if(overflow()){warning.textContent='内容仍超过一页安全范围。请先批准删减方案，不要继续缩小字体。';warning.style.display='block';return}
-  for(let i=0;i<100&&usedRatio()<.95;i++){
-    let prop,previous,next,unit='';
-    if(font<11){prop='--body-size';previous=font;next=font+=.1;unit='pt'}
-    else if(line<1.5){prop='--line';previous=line;next=line+=.02}
-    else if(gap<14){prop='--section-gap';previous=gap;next=gap+=.5;unit='px'}
-    else if(item<7){prop='--item-gap';previous=item;next=item+=.25;unit='px'}
-    else break;
-    set(prop,next,unit);
-    if(overflow()||usedRatio()>.98){set(prop,previous,unit);break}
+function usedRatio(){return contentMetrics().ratio}
+function overflow(){return contentMetrics().overflow}
+const fitSpecs=[
+  {name:'--line',min:1.25,max:1.52,step:.005,unit:''},
+  {name:'--item-gap',min:2,max:8,step:.125,unit:'px'},
+  {name:'--section-gap',min:6,max:16,step:.125,unit:'px'},
+  {name:'--body-size',min:9.5,max:11.5,step:.025,unit:'pt'},
+  {name:'--page-pad',min:8,max:15,step:.125,unit:'mm'}
+];
+function fitSnapshot(){return Object.fromEntries(fitSpecs.map(spec=>[spec.name,n(spec.name)]))}
+function restoreFit(state){fitSpecs.forEach(spec=>set(spec.name,state[spec.name],spec.unit))}
+function updateFitStatus(ratio){fitStatus.textContent=`页面占比：${(ratio*100).toFixed(1)}%`}
+function fitOnePage(){
+  warning.style.display='none';
+  const target=.98,lower=.95,settled=.975;
+  let metrics=contentMetrics(),best=metrics.ratio<=target&&!metrics.overflow?fitSnapshot():null,bestDistance=best?target-metrics.ratio:Infinity;
+  const direction=metrics.ratio>target||metrics.overflow?-1:1;
+  outer:for(const spec of fitSpecs){
+    for(let i=0;i<240;i++){
+      const current=n(spec.name),next=Math.round((current+direction*spec.step)*10000)/10000;
+      if(next<spec.min-1e-6||next>spec.max+1e-6)break;
+      set(spec.name,next,spec.unit);metrics=contentMetrics();
+      if(direction>0&&(metrics.overflow||metrics.ratio>target)){
+        set(spec.name,current,spec.unit);break;
+      }
+      if(!metrics.overflow&&metrics.ratio<=target){
+        const distance=target-metrics.ratio;
+        if(distance<bestDistance){best=fitSnapshot();bestDistance=distance}
+        if(metrics.ratio>=settled)break outer;
+      }
+      if(direction<0&&!metrics.overflow&&metrics.ratio<=target)break outer;
+    }
   }
-  if(usedRatio()<.95){warning.textContent='页面内容占比仍低于 95%。建议恢复相关且已批准的内容，或重新平衡模块间距。';warning.style.display='block'}
-  else if(usedRatio()>.98){warning.textContent='页面内容过于贴近底部，请略微收紧间距以保留打印安全区。';warning.style.display='block'}}
-function resetView(){['--body-size','--line','--section-gap','--item-gap','--page-pad'].forEach(x=>root.style.removeProperty(x));warning.style.display='none'}
+  if(best)restoreFit(best);
+  metrics=contentMetrics();updateFitStatus(metrics.ratio);
+  if(metrics.overflow||metrics.ratio>1){warning.textContent='内容在安全字号、间距和页边距下仍超过一页。请先批准内容或结构调整方案。';warning.style.display='block'}
+  else if(metrics.ratio<lower){warning.textContent='页面内容占比仍低于 95%。建议恢复相关且已批准的内容，或重新平衡模块；自动适配不会把字号和间距放大到不自然。';warning.style.display='block'}
+  else if(metrics.ratio>target){warning.textContent='页面内容占比仍高于 98%，请检查打印预览或进一步调整内容。';warning.style.display='block'}
+}
+function resetView(){['--body-size','--line','--section-gap','--item-gap','--page-pad'].forEach(x=>root.style.removeProperty(x));warning.style.display='none';updateFitStatus(usedRatio())}
+window.addEventListener('load',()=>updateFitStatus(usedRatio()));
 </script>
 </body></html>
