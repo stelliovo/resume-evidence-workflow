@@ -13,6 +13,7 @@ Read this file whenever the user selects HTML as the final resume format. A stat
 - Provide undo and redo where the browser supports them.
 - Provide a one-page auto-fit control.
 - Provide a visible `生成 PDF` or equivalent print button that calls `window.print()`.
+- Before opening the print dialog, show browser-specific instructions for disabling browser-generated headers and footers. For Chrome or Edge, direct the user to `更多设置 → 取消“页眉和页脚”`; for Safari, direct the user to `显示详细信息 → 取消“打印页眉和页脚”`.
 - Provide local save and download-updated-HTML controls so manual edits survive closing or sharing the file.
 
 Use [the editable base template](../assets/editable-resume-base.html) as the implementation baseline. Adapt its visual design to the source resume; do not discard its editing behavior when changing the layout.
@@ -59,6 +60,7 @@ When a source resume has a usable design, preserve its typography, colors, secti
 - Hide the toolbar and warnings in print CSS.
 - Use `@page { size: A4; margin: 0; }`. Measure against an A4-height preflight box, but let the printed `.page` element use content-driven height after a successful preflight; a fixed 297 mm element can round onto a blank second sheet in some browsers.
 - Verify that print preview has the intended page count and no clipping or overlap.
+- Verify that the saved PDF contains no browser-added date, web-page title, page number, URL, `file://` address, or local HTML path. These may come from the browser print layer and cannot be reliably disabled by page CSS.
 - Deliver the editable HTML file. Do not generate a separate PDF unless the user asks for one.
 - Name the file `<姓名>-<公司名>.html`, using a fictional example such as `李明-示例科技.html`. Do not add the position, job-description (JD) title, date, version, or `editable` / `可编辑版` suffix unless requested.
 

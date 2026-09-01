@@ -62,7 +62,7 @@ Before deleting or materially merging an experience, project, overview, bullet, 
 
 Before drafting, ask whether the user wants self-positioning/professional summary, self-evaluation, or an intended position, and whether the resume is dedicated to one job description (JD) or reused across roles.
 
-Read [resume-section-structure.md](references/resume-section-structure.md) before arranging sections. Internships must remain clearly distinguishable from employment, projects, part-time work, campus activity, volunteering, and independent work; section names may adapt to the job description (JD) without upgrading the relationship type.
+Read [resume-section-structure.md](references/resume-section-structure.md) before arranging sections. Determine sections from the candidate's actual career stage and relationship types. Formal employment, internships, and non-employment experience must remain distinguishable; section names may adapt to the job description (JD) without obscuring or upgrading the relationship type.
 
 Use the selected skill to rewrite from verified evidence, then read [application-ready-resume.md](references/application-ready-resume.md) for final validation. If HTML is selected, additionally read [editable-html-output.md](references/editable-html-output.md) and use [assets/editable-resume-base.html](assets/editable-resume-base.html). A static HTML page is not an acceptable substitute for the editable artifact.
 

@@ -133,7 +133,13 @@ function saveDraft(){localStorage.setItem(storageKey(),page.innerHTML);warning.t
 function downloadHTML(){if(currentBlock)currentBlock.classList.remove('selected-block');const html='<!doctype html>\n'+document.documentElement.outerHTML;const blob=new Blob([html],{type:'text/html;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(document.title||'简历')+'.html';a.click();URL.revokeObjectURL(a.href)}
 function preparePrint(){document.body.classList.add('print-preflight');if(currentBlock)currentBlock.classList.remove('selected-block');const metrics=fitOnePage(.97,false);const safe=!metrics.overflow&&metrics.ratio>=.95&&metrics.ratio<=.98;document.body.classList.toggle('print-ready',safe);document.body.classList.remove('print-preflight');updateFitStatus(metrics);return{safe,metrics}}
 function finishPrint(){document.body.classList.remove('print-preflight','print-ready');updateFitStatus(contentMetrics())}
-function printResume(){const result=preparePrint();if(!result.safe){finishPrint();warning.textContent='打印预检仍检测到溢出或页面占比不足，已暂停生成 PDF。请继续调整内容或版式。';warning.style.display='block';return}window.print()}
+function printGuide(){
+  const ua=navigator.userAgent;
+  if(/Chrome|Chromium|Edg\//.test(ua)&&!/CriOS/.test(ua))return 'Chrome / Edge 导出提示：\n\n1. 在打印窗口展开“更多设置”\n2. 取消勾选“页眉和页脚”\n3. 纸张选择 A4，边距选择“无”，缩放保持默认或 100%\n4. 确认预览只有一页再保存\n\n网页无法代替你关闭浏览器添加的页眉和页脚。是否继续？';
+  if(/Safari/.test(ua)&&!/Chrome|Chromium|CriOS|Edg\//.test(ua))return 'Safari 导出提示：\n\n1. 在打印窗口点击“显示详细信息”\n2. 取消勾选“打印页眉和页脚”\n3. 纸张选择 A4，确认预览只有一页再保存\n\n否则 PDF 可能带有日期、网页标题或本地 HTML 路径。是否继续？';
+  return '导出提示：\n\n请在浏览器打印设置中关闭“页眉和页脚”，选择 A4，并确认预览只有一页。否则 PDF 可能带有日期、网页标题、本地路径或页码。是否继续？';
+}
+function printResume(){if(!window.confirm(printGuide()))return;const result=preparePrint();if(!result.safe){finishPrint();warning.textContent='打印预检仍检测到溢出或页面占比不足，已暂停生成 PDF。请继续调整内容或版式。';warning.style.display='block';return}window.print()}
 window.addEventListener('beforeprint',()=>{if(!document.body.classList.contains('print-ready'))preparePrint()});window.addEventListener('afterprint',finishPrint);
 window.addEventListener('load',()=>{const saved=localStorage.getItem(storageKey());if(saved){page.innerHTML=saved;page.querySelectorAll('.edit-block').forEach(el=>el.setAttribute('contenteditable','true'))}document.fonts.ready.then(()=>updateFitStatus(contentMetrics()))});
 </script>
