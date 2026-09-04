@@ -86,22 +86,6 @@ Keep the main evidence bank readable. Use this structure when the corresponding 
 
 For every discovered branch, record its label, project trigger or reason for starting, the user's own wording, personal and team actions, direct outputs, observed outcomes or failure, reasoning or trade-off, artifacts, capability signals, and possible resume or interview uses.
 
-### Claim ledger
-
-For each material claim, record:
-
-- exact claim;
-- status: `verified`, `estimated`, `interpretation`, `presentation choice`, `conflicted`, or `unsupported`;
-- scope: individual, shared, team, account, project, or organization;
-- evidence source;
-- safe wording;
-- stronger user-preferred wording, if different;
-- practical risk and likely follow-up.
-
-### Resume-defense map
-
-For each current or proposed bullet, record its underlying evidence, what the user can explain confidently, likely follow-ups, details not to imply, and missing evidence worth retrieving.
-
 ### Key events
 
 Keep compact event records when they reveal how the user handled a meaningful problem, decision, disagreement, constraint, or change. Record the situation, people involved, tension or difficulty, the user's responsibility, action and reasoning, what happened, any review that actually took place, improvements identified or later applied, and the professional signals illustrated. Do not write a full STAR answer.
@@ -124,7 +108,7 @@ Do not label separate blocks as `facts`, `capabilities`, or `provisional languag
 
 ## Internal supporting indexes
 
-Keep claim status, capability-to-evidence links, job description (JD) mappings, resume-defense mappings, sources, and modification history in a compact supporting section or separate internal file when they would make the main Markdown bank hard to read. The user-facing bank should remain the primary readable record.
+Keep capability-to-evidence links, job description (JD) mappings, sources, and material corrections in a compact supporting section or separate internal file only when they add retrieval value. The user-facing bank should remain the primary readable record.
 
 Maintain a global key-event index that links each event back to its experience and evidence rather than duplicating the full story. Include:
 

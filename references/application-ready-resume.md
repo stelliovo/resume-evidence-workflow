@@ -2,28 +2,23 @@
 
 A rewrite is complete only when the user has a final artifact suitable for the intended application channel.
 
-## Content checks
+## Workflow checks
 
-- Every final claim maps to the evidence bank.
-- Core job description (JD) requirements have visible evidence or an honestly stated gap.
-- The strongest and most relevant evidence is easy to find.
-- Wording reflects personal versus team ownership accurately.
-- Dates, organizations, roles, education, links, and metrics are internally consistent.
+- The selected resume skill received the job description (JD), matching matrix, relevant evidence, required retained content, and the user's explicit presentation instructions.
+- The final resume follows the user's latest instructions and covers the intended job-description (JD) priorities.
+- The workflow did not proactively add information that the user neither supplied nor requested.
+- Any presentation choice that differs from the evidence record remains separate from that record.
 - The resume does not expose internal labels, confidence scores, placeholders, or advisor notes.
-- Every bullet has enough underlying detail for likely follow-up questions.
 
 ## Market and language checks
 
 - Conventions fit the target country, language, industry, seniority, and company type.
 - English resumes are written as native recruiting documents rather than literal Chinese translations, and vice versa.
-- ATS terminology is used only when supported by evidence.
 - Sensitive personal information and photo conventions match the target market and user preference.
 
 ## Selection and user control
 
 - Material deletions or mergers were approved.
-- Meaningful trade-offs were shown to the user.
-- Any higher-risk presentation choices are recorded separately from precise evidence.
 - The selected resume skill and any overridden rule are documented internally.
 - Before drafting, the user was asked whether to include self-positioning or a professional summary, self-evaluation, and an intended or target position.
 - The intended-position decision accounts for whether the file is dedicated to one job description (JD) or may be reused for multiple roles. Do not insert a narrow target role by default when broader reuse matters.

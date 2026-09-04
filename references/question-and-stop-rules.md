@@ -8,7 +8,7 @@ The preview is orientation, not a quota or promise. Do not tell the user that no
 
 ## Choose the next question
 
-Before asking, identify its expected information gain. Prefer questions that may reveal a new capability or business branch, distinguish individual from team work, uncover a decision or adaptation, establish evidence, resolve a material conflict, or make a future claim defensible. If none applies, defer the question.
+Before asking, identify its expected information gain. Prefer questions that may reveal a new capability or business branch, uncover a decision or adaptation, establish useful evidence, resolve a material conflict, or change later selection. If none applies, defer the question.
 
 Check the current answer, earlier discussion of the same experience, existing evidence records, and materially similar experiences before asking. Keep this screening internal.
 
@@ -49,7 +49,7 @@ For example, if two fictional campus newsletters were described as one shared ed
 
 ## Depth test
 
-Continue only if the next answer could change the capability label, whether the branch deserves a bullet, claim strength or safety, ownership boundary, evidence type, problem-solving value, or downstream role relevance.
+Continue only if the next answer could change the capability label, whether the branch may be useful later, the evidence type, problem-solving value, or downstream role relevance.
 
 ## Stop conditions
 

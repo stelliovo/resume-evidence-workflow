@@ -14,7 +14,7 @@ Extract from the job description (JD) and user context:
 - application channel: ATS upload, recruiter, referral, portfolio-led, or public profile;
 - requested artifact: text, Markdown, DOCX, editable HTML, or PDF;
 - source-layout preservation needs;
-- user's risk tolerance and preferred degree of assertiveness.
+- user's explicit presentation instructions.
 
 ## Discover installed candidates
 
@@ -40,8 +40,7 @@ Use these dimensions:
 | Role and industry | Does it contain relevant professional vocabulary and evaluation logic? |
 | Candidate stage | Is its method suitable for this level and career path? |
 | job description (JD) alignment | Can it connect requirements to evidence rather than only polish prose? |
-| Evidence discipline | Does it preserve ownership, scope, metrics, and uncertainty? |
-| User agency | Does it expose meaningful choices and respect the user's risk preference? |
+| User instructions | Can it follow the user's explicit presentation and retention requirements? |
 | Output | Can it preserve the source style and create the required artifact? |
 | Interaction cost | Will it reuse the evidence bank or force unnecessary re-interviewing? |
 
@@ -57,7 +56,7 @@ Examples of valid routing logic:
 - US product role → an English ATS/HM-oriented method as primary; portfolio or document skill only if required.
 - Highly specialized finance or legal role → a domain-specific skill over a generic stylistic writer, provided its evidence rules are acceptable.
 
-If methods conflict, do not silently combine them. Explain the conflict—such as ATS simplicity versus designed layout, conservative title fidelity versus aggressive repositioning, or chronological order versus relevance order—and ask the user when the choice materially changes the result.
+If methods conflict, follow an existing user instruction. Otherwise explain only a conflict that materially changes the result, such as ATS simplicity versus designed layout or chronological versus relevance order, and ask the user once.
 
 ## Search external skills only when needed
 

@@ -16,11 +16,11 @@ Run only the stage the user currently needs. Resume from existing files instead 
 
 When no job description (JD) is available, complete the evidence stage and preserve it for later tailoring. Do not imply that the complete product ends there.
 
-## Protect evidence and personal information
+## Preserve evidence and user decisions
 
-The evidence bank is the factual source of truth. A routed skill may change selection, order, framing, and terminology; it may not invent evidence, upgrade ownership, or silently remove user-approved content.
+The evidence bank preserves what the user supplied and confirmed. The application resume may use a presentation choice explicitly requested by the user without rewriting the underlying evidence record.
 
-Keep exact facts separate from estimates, interpretation, and presentation choices. Explain a material wording risk once, offer practical alternatives, and let the user decide where reasonable. Read [evidence and user agency](references/evidence-and-agency.md) only when dates, ownership, factual boundaries, or disputed wording require judgment.
+Do not proactively add information that the user neither supplied nor requested. When the user explicitly asks for a different presentation of dates, titles, responsibilities, results, metrics, or other content, treat that request as the user's decision and pass it through to the selected resume skill. If a choice has a material downstream explanation risk, mention that risk once and continue without moralizing or requiring another confirmation. Read [evidence and user agency](references/evidence-and-agency.md) when the evidence record and resume presentation differ.
 
 Never place a real user's identifying facts in public documentation, demonstrations, screenshots, tests, or case libraries. Use wholly fictional identities, organizations, dates, metrics, and stories.
 
@@ -36,7 +36,7 @@ Use three passes:
 
 1. **Recall:** establish what the work was, why it began, what the user personally did, and what followed.
 2. **Lateral scan:** read [career-value-radar.md](references/career-value-radar.md) and select only plausible hidden branches such as monetization, governance, partnerships, systems, user insight, or reuse.
-3. **Selective deepening:** read [question-and-stop-rules.md](references/question-and-stop-rules.md). Continue only when an answer may change capability, claim strength, ownership, measurable evidence, problem-solving value, or later resume selection.
+3. **Selective deepening:** read [question-and-stop-rules.md](references/question-and-stop-rules.md). Continue only when an answer may reveal distinct value, clarify the evidence record, or change later resume selection.
 
 After a substantial answer, briefly show only the neutral information that would be added or changed in the evidence bank, using slightly professional but not fully optimized resume language. This lets the user correct the record without rereading the file. Stop when added detail would be repetitive, trivial, unrecoverable, or unlikely to affect future use.
 
@@ -64,7 +64,7 @@ Before drafting, ask whether the user wants self-positioning/professional summar
 
 Read [resume-section-structure.md](references/resume-section-structure.md) before arranging sections. Determine sections from the candidate's actual career stage and relationship types. Formal employment, internships, and non-employment experience must remain distinguishable; section names may adapt to the job description (JD) without obscuring or upgrading the relationship type.
 
-Use the selected skill to rewrite from verified evidence, then read [application-ready-resume.md](references/application-ready-resume.md) for final validation. If HTML is selected, additionally read [editable-html-output.md](references/editable-html-output.md) and use [assets/editable-resume-base.html](assets/editable-resume-base.html). A static HTML page is not an acceptable substitute for the editable artifact.
+Give the selected skill the job description (JD), matching matrix, relevant evidence, required retained content, and the user's explicit presentation instructions. Let that skill determine the writing method. Then read [application-ready-resume.md](references/application-ready-resume.md) for workflow and artifact validation. If HTML is selected, additionally read [editable-html-output.md](references/editable-html-output.md) and use [assets/editable-resume-base.html](assets/editable-resume-base.html). A static HTML page is not an acceptable substitute for the editable artifact.
 
 Before drafting repeated experience angles from scratch, read [reusable resume content](references/reusable-resume-content.md). Reuse a verified expression only when its evidence boundary and target angle still fit the current job description (JD); tailor it rather than copying mechanically.
 

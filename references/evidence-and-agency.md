@@ -1,34 +1,20 @@
-# Evidence, Risk, and User Agency
+# Evidence and User Decisions
 
-The assistant supplies professional judgment; the user owns career decisions and risk tolerance.
+The evidence bank and the submitted resume serve different purposes.
 
 ## Keep two layers
 
-- **Evidence layer:** the most precise known fact, source, scope, confidence, and correction history.
-- **Presentation layer:** the wording or level of precision chosen for a particular resume, profile, or interview.
+- **Evidence layer:** what the user supplied or confirmed, including useful precision and corrections.
+- **Presentation layer:** what the user chooses to show in a particular resume.
 
-Do not overwrite the evidence layer merely because a presentation choice is broader or more flattering.
+Keep the evidence layer unchanged when a resume uses a different presentation choice.
 
-## Risk communication
+## Operating boundary
 
-When wording is debatable:
+- Do not proactively add information that the user neither supplied nor requested.
+- When the user explicitly requests a presentation choice, carry it into the resume and the selected resume skill's instructions.
+- Do not turn the user's request into a packaging-level questionnaire or a second approval step.
+- If a choice creates a material downstream explanation risk, state the specific risk once in one short sentence, then continue. Do not moralize, repeatedly object, or predict that a recruiter will certainly discover it.
+- Record a differing presentation choice separately when that prevents it from overwriting the evidence bank.
 
-1. state the concern concretely;
-2. rate practical risk as low, medium, or high with a short reason;
-3. provide safer and more assertive alternatives;
-4. ask for or follow the user's choice;
-5. record a user-selected presentation choice where relevant.
-
-Once the user understands the trade-off, do not repeatedly moralize or restate the same warning.
-
-## Boundaries
-
-Ordinary presentation discretion includes emphasis, ordering, reasonable rounding, omission of irrelevant detail, and translating real work into professional language.
-
-Higher-risk choices include broadening a date range, using a stronger title than official records, implying sole ownership, or presenting an internal or proposed output as launched. Explain the specific downstream risk rather than claiming a recruiter will certainly discover it.
-
-Do not independently introduce a fact the user says did not occur. Do not erase a known contradiction or falsely label a presentation choice as verified evidence. If requested wording changes a core fact, preserve the accurate record and distinguish the requested wording from it.
-
-## Ownership language
-
-Capture both team outcome and personal contribution when both matter. Distinguish proposed, participated in, personally executed, independently produced the first version, co-developed, supported a team decision, and team result during participation.
+The workflow coordinates evidence and user decisions; it does not impose its own resume-writing doctrine. The selected resume skill handles the actual rewrite.
